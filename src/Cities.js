@@ -10,11 +10,12 @@ export default function Cities() {
     const [success, setSuccess] = useState(0);
 
     const checkInput = (e) => {
-        if (currentInput.trim != '') {
-            setFinalQuery(currentInput.trim);
-            getCities(currentInput.trim).then(result => {
+        if (currentInput!= '') {
+            setFinalQuery(currentInput);
+            getCities(currentInput).then(result => {
                 let tempData = result.data;
-                if (Object.values(tempData).map(el => el.name).includes(currentInput.trim)) 
+                console.log("results", tempData)
+                if (Object.values(tempData).map(el => el.name).includes(currentInput)) 
                     setSuccess(1);
                 else
                     setSuccess(-1);
