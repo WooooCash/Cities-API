@@ -36,9 +36,10 @@ export default function Cities() {
             {success == -1 && (
                 <div className="fail">
                     <p>{finalQuery} doesn't exist...</p>
-                    <hr />
-                    {Object.keys(cities).length === 0 && (
+                    {console.log("length", Object.keys(cities).length)}
+                    {Object.keys(cities).length > 0 && (
                         <div>
+                            <hr />
                             <p>did you mean...</p>
                             <ul>
                             {Object.values(cities).map(c => (
