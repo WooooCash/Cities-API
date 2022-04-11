@@ -11,15 +11,19 @@ export default function Cities() {
     const [success, setSuccess] = useState(0);
 
     const checkInput = (e) => {
-        setFinalQuery(currentInput);
-        getCities(currentInput).then(result => {
-            let tempData = result.data;
-            setCities(tempData)
-            if (Object.values(tempData).map(el => el.name).includes(currentInput)) 
-                setSuccess(1);
-            else
-                setSuccess(-1);
-        })
+        if (currentInput != '') {
+            setFinalQuery(currentInput);
+            getCities(currentInput).then(result => {
+                let tempData = result.data;
+                setCities(tempData)
+                if (Object.values(tempData).map(el => el.name).includes(currentInput)) 
+                    setSuccess(1);
+                else
+                    setSuccess(-1);
+            })
+        } else {
+            setSuccess(0);
+        }
     }
 
     return(
