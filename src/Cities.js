@@ -37,12 +37,16 @@ export default function Cities() {
                 <div className="fail">
                     <p>{finalQuery} doesn't exist...</p>
                     <hr />
-                    <p>did you mean...</p>
-                    <ul>
-                    {Object.values(cities).map(c => (
-                        <li>{c.name}</li>
-                    ))}
-                    </ul>
+                    {Object.keys(cities).length === 0 && (
+                        <div>
+                            <p>did you mean...</p>
+                            <ul>
+                            {Object.values(cities).map(c => (
+                                <li>{c.name}</li>
+                            ))}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             )}
         </div>
